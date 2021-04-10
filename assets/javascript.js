@@ -6,10 +6,15 @@ var questionsArr = [
 
     },
     {
-        question:"What is an array?", 
-        answers:["A whole number","A decimal","A word","Nothing"],
-        correct:"A whole number"
-    }
+        question:"What does HTML stand for?", 
+        answers:["Hypertext Markup link","How to meet ladies", "Hypertext Markup Language","High text making links"],
+        correct:"Hypertext Markup Language"
+    },
+    {
+        question:"What does CSS stand for?", 
+        answers:["Cascading Style Sheet","Colorful Stlying Structure","Calling Stlye Sheet","Cryptic System Source"],
+        correct:"Cascading Style Sheet"
+    },
 ]
 
 
@@ -41,7 +46,13 @@ function startGame() {
     displayQuestion();
 }
 function displayQuestion() {
-    document.getElementById("question").textContent=(questionsArr[index].question)
+    document.getElementById("question").textContent=(questionsArr[index].question);
+    // if (questionsArr===true)
+}
+
+function displayAnswers() {
+    document.getElementById("answer-buttons").textContent=(questionArr[index].answers);
+    displayQuestion();
 }
 
 function gameOver() {
@@ -50,3 +61,4 @@ function gameOver() {
 }
 var startBtn= document.getElementById("startbtn") 
 startBtn.addEventListener("click", startGame)
+

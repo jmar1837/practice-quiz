@@ -41,3 +41,6 @@
 .btn:hover {
     border-color: black;
 }
+.hidden {
+    display:none;
+}

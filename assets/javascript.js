@@ -46,8 +46,36 @@ function startGame() {
     displayQuestion();
 }
 function displayQuestion() {
-    document.getElementById("question").textContent=(questionsArr[index].question);
+    document.getElementById("question").textContent= questionsArr[index].question;
+    var answer1=document.getElementById("answer1");
+    var answer2=document.getElementById("answer2");
+    var answer3=document.getElementById("answer3");
+    var answer4=document.getElementById("answer4");
+
+    answer1.textContent= questionsArr[index].answers[0];
+    answer2.textContent= questionsArr[index].answers[1];
+    answer3.textContent= questionsArr[index].answers[2];
+    answer4.textContent= questionsArr[index].answers[3];
     // if (questionsArr===true)
+    answer1.onclick = checkAnswers; 
+    answer2.onclick = checkAnswers; 
+    answer3.onclick = checkAnswers; 
+    answer4.onclick = checkAnswers; 
+}
+function checkAnswers(event) {
+    console.log(event.target.textContent);
+    if (event.target.textContent===questionsArr[index].correct) {
+        
+    } else {
+        time =time -10
+        timeEl.textContent = time
+    }
+    index= index +1
+    if (index===questionsArr.length) {
+        gameOver();
+    } else {
+        displayQuestion();
+    } 
 }
 
 function displayAnswers() {
@@ -58,6 +86,8 @@ function displayAnswers() {
 function gameOver() {
     time=0
     clearInterval(timer)
+    console.log("Game Over");
+    document.getElementById("gameover").classList.remove("hidden");
 }
 var startBtn= document.getElementById("startbtn") 
 startBtn.addEventListener("click", startGame)

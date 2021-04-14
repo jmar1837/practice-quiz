@@ -15,6 +15,23 @@ var questionsArr = [
         answers:["Cascading Style Sheet","Colorful Stlying Structure","Calling Stlye Sheet","Cryptic System Source"],
         correct:"Cascading Style Sheet"
     },
+
+    {
+        question:"What does DOM mean?", 
+        answers:["Director of Manufacturing ","Document Object Model","Distributed Order Management","Director of Marketing"],
+        correct:"Document Object Model"
+    },
+   
+    {
+        question:"What is the desired results in a program?", 
+        answers:["The input","The output"," Functionality","Readability"],
+        correct:"The output"
+    },
+    {
+        question:"Which of the following can’t be assigned to Character data type?", 
+        answers:["Letter","Digit"," String","Special Character"],
+        correct:"String"
+    },
 ]
 
 
@@ -23,6 +40,7 @@ var timer;
 var timeEl = document.getElementById("time")
 var index=0;
 
+var score =0;
 // console.log(questionsArr[index].question)
 // index=index+1
 // console.log(questionsArr[index].question)
@@ -65,14 +83,18 @@ function displayQuestion() {
 function checkAnswers(event) {
     console.log(event.target.textContent);
     if (event.target.textContent===questionsArr[index].correct) {
+        score++;
+        alert("Correct!")
         
     } else {
         time =time -10
         timeEl.textContent = time
+        alert("Incorrect!")
     }
     index= index +1
     if (index===questionsArr.length) {
         gameOver();
+        alert("Your Score is" + score);
     } else {
         displayQuestion();
     } 
